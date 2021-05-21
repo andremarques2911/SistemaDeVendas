@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface IVendasRepositoryCustom extends CrudRepository<Venda, Long> {
 
-    Venda findAllByNumero(int numero);
+    Venda findByNumero(int numero);
 
     List<Venda> findAll();
 

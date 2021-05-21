@@ -1,6 +1,6 @@
 package com.projearq.sistemavendas.aplicacao.casosDeUso;
 
-import com.projearq.sistemavendas.negocio.entidades.Produto;
+import com.projearq.sistemavendas.aplicacao.dtos.ProdutoDTO;
 import com.projearq.sistemavendas.negocio.servicos.ServicoDeProduto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,8 +17,8 @@ public class ConsultaProdutosUC {
 		this.servicoDeProduto = servicoDeProduto;
 	}
 
-	public List<Produto> run() {
-		return this.servicoDeProduto.consultaProduto();
+	public List<ProdutoDTO> run() {
+		return this.servicoDeProduto.consultaProdutos();
 	}
 
 }

@@ -155,7 +155,7 @@ if exist %WRAPPER_JAR% (
 @REM End of extension
 
 @REM Init app configuration
-set REGRA_IMPOSTO=brasil
+set REGRA_IMPOSTO=argentina
 @REM End app configuration
 
 @REM Provide a "standardized" way to retrieve the CLI args that will

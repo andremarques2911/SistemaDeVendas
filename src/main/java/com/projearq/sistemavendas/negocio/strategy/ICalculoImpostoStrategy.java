@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface ICalculoImpostoStrategy {
 
-    BigDecimal calculaValorDoImposto();
+    Integer calculaValorDoImposto(int subtotal);
 
 }

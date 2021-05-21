@@ -3,13 +3,13 @@ package com.projearq.sistemavendas.negocio.entidades;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "porodutos")
+@Table(name = "produtos")
 public class Produto {
 
 	private Long id;
 	private Long codigo;
 	private String descricao;
-	private int precoUnitario;
+	private double precoUnitario;
 
 	@Id
 	@SequenceGenerator(allocationSize = 1, name = "id_produto_seq", sequenceName = "id_produto_seq")
@@ -39,11 +39,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public int getPrecoUnitario() {
+	public double getPrecoUnitario() {
 		return precoUnitario;
 	}
 
-	public void setPrecoUnitario(int precoUnitario) {
+	public void setPrecoUnitario(double precoUnitario) {
 		this.precoUnitario = precoUnitario;
 	}
 

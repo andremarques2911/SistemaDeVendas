@@ -11,4 +11,6 @@ public interface IProdutosRepositoryCustom extends CrudRepository<Produto, Long>
 
     List<Produto> findAll();
 
+    Produto findByCodigo(Long codigo);
+
 }

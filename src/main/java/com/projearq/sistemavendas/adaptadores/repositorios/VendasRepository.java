@@ -25,7 +25,7 @@ public class VendasRepository implements IVendasRepository {
 
 	@Override
 	public Venda recupera(int numero) {
-		return this.vendasRepositoryCustom.findAllByNumero(numero);
+		return this.vendasRepositoryCustom.findByNumero(numero);
 	}
 
 	@Override

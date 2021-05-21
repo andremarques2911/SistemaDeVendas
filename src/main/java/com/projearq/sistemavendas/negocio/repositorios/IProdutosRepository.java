@@ -8,4 +8,8 @@ public interface IProdutosRepository {
 
 	List<Produto> consultaProdutos();
 
+	Produto buscarProduto(Long codigo);
+
+	Produto adicionaProduto(Produto produto);
+
 }

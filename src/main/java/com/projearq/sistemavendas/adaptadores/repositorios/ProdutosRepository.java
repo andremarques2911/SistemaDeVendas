@@ -23,4 +23,13 @@ public class ProdutosRepository implements IProdutosRepository {
 		return this.produtosRepositoryCustom.findAll();
 	}
 
+	@Override
+	public Produto buscarProduto(Long codigo) {
+		return this.produtosRepositoryCustom.findByCodigo(codigo);
+	}
+
+	@Override
+	public Produto adicionaProduto(Produto produto) {
+		return this.produtosRepositoryCustom.save(produto);
+	}
 }

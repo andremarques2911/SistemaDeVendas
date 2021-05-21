@@ -6,4 +6,6 @@ public interface IEstoqueRepository {
 
 	Estoque buscaItemEstoque(Long codigo);
 
+	Estoque adicionaEstoqueProduto(Estoque estoque);
+
 }

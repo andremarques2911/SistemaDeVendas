@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class CalculaCustoBasicoUC {
+public class ConfirmaVendaUC {
 
-	private ServicoVendas servicoVendas;
+    private ServicoVendas servicoVendas;
 
-	@Autowired
-	public CalculaCustoBasicoUC(ServicoVendas servicoVendas) {
-		this.servicoVendas = servicoVendas;
-	}
+    @Autowired
+    public ConfirmaVendaUC(ServicoVendas servicoVendas) {
+        this.servicoVendas = servicoVendas;
+    }
 
-	public Integer[] run(List<ProdutoDTO> itens) {
-		return this.servicoVendas.calculaCustoBasico(itens);
-	}
+    public boolean run(List<ProdutoDTO> itens) {
+        return this.servicoVendas.confirmaVenda(itens);
+    }
 
 }

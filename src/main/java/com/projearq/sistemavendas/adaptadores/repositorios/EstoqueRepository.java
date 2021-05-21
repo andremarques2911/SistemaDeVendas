@@ -9,16 +9,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class EstoqueRepository implements IEstoqueRepository {
 
-	private IEstoqueRepositoryCustom estoqueRepositoryCustomu;
+	private IEstoqueRepositoryCustom estoqueRepositoryCustom;
 
 	@Autowired
 	public EstoqueRepository(IEstoqueRepositoryCustom estoqueRepositoryCustomu) {
-		this.estoqueRepositoryCustomu = estoqueRepositoryCustomu;
+		this.estoqueRepositoryCustom = estoqueRepositoryCustomu;
 	}
 
 	@Override
 	public Estoque buscaItemEstoque(Long codigo) {
-		return this.estoqueRepositoryCustomu.findByProduto_Codigo(codigo);
+		return this.estoqueRepositoryCustom.findByProduto_Codigo(codigo);
 	}
 
+	@Override
+	public Estoque adicionaEstoqueProduto(Estoque estoque) {
+		return this.estoqueRepositoryCustom.save(estoque);
+	}
 }
