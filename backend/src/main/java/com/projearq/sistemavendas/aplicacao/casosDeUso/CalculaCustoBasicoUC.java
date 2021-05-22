@@ -18,7 +18,7 @@ public class CalculaCustoBasicoUC {
 		this.servicoVendas = servicoVendas;
 	}
 
-	public Integer[] run(List<ProdutoDTO> itens) {
+	public Integer[] run(List<ProdutoDTO> itens) throws Exception {
 		return this.servicoVendas.calculaCustoBasico(itens);
 	}
 

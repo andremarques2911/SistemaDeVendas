@@ -1,7 +1,7 @@
 package com.projearq.sistemavendas.adaptadores.configuradores;
 
-import com.projearq.sistemavendas.aplicacao.servicos.CalculoImpostoArgentina;
-import com.projearq.sistemavendas.aplicacao.servicos.CalculoImpostoBrasil;
+import com.projearq.sistemavendas.aplicacao.servicos.calculoImposto.CalculoImpostoArgentina;
+import com.projearq.sistemavendas.aplicacao.servicos.calculoImposto.CalculoImpostoBrasil;
 import com.projearq.sistemavendas.negocio.strategy.ICalculoImpostoStrategy;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;

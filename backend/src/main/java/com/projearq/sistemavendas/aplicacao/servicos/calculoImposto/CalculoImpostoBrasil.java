@@ -1,10 +1,10 @@
-package com.projearq.sistemavendas.aplicacao.servicos;
+package com.projearq.sistemavendas.aplicacao.servicos.calculoImposto;
 
 import com.projearq.sistemavendas.negocio.strategy.ICalculoImpostoStrategy;
 
-public class CalculoImpostoArgentina implements ICalculoImpostoStrategy {
+public class CalculoImpostoBrasil implements ICalculoImpostoStrategy {
 
-    private final double VALOR_IMPOSTO = 0.1;
+    private final double VALOR_IMPOSTO = 0.2;
 
     @Override
     public Integer calculaValorDoImposto(int subtotal) {

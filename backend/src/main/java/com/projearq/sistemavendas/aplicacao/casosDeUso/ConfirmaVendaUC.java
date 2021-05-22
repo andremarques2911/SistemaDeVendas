@@ -18,7 +18,7 @@ public class ConfirmaVendaUC {
         this.servicoVendas = servicoVendas;
     }
 
-    public boolean run(List<ProdutoDTO> itens) {
+    public boolean run(List<ProdutoDTO> itens) throws Exception {
         return this.servicoVendas.confirmaVenda(itens);
     }
 

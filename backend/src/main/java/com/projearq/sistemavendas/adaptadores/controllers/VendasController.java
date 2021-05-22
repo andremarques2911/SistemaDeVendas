@@ -39,7 +39,7 @@ public class VendasController {
 
 	@PostMapping("/confirmacao")
 	@CrossOrigin(origins = "*")
-	public boolean confirmaVenda(@RequestBody final List<ProdutoDTO> itens) {
+	public boolean confirmaVenda(@RequestBody final List<ProdutoDTO> itens) throws Exception {
 		return this.confirmaVendaUC.run(itens);
 	}
 
@@ -51,7 +51,7 @@ public class VendasController {
 
 	@PostMapping("/subtotal")
 	@CrossOrigin(origins = "*")
-	public Integer[] calculaSubtotal(@RequestBody final List<ProdutoDTO> itens) {
+	public Integer[] calculaSubtotal(@RequestBody final List<ProdutoDTO> itens) throws Exception {
 		return this.calculaCustoBasicoUC.run(itens);
 	}
 
