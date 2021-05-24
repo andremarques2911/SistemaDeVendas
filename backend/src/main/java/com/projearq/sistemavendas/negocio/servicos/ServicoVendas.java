@@ -56,7 +56,7 @@ public class ServicoVendas {
 			Produto produto = this.servicoDeProduto.buscaProduto(item.getCodigo());
 			subtotal += produto.getPrecoUnitario() * item.getQuantidade();
 		}
-		imposto = this.calculoImpostoStrategy.calculaValorDoImposto(subtotal);
+		imposto = this.calculoImpostoStrategy.calculaValorDoImposto(itens);
 		final Integer[] resp = new Integer[3];
 		resp[0] = subtotal;
 		resp[1] = imposto;

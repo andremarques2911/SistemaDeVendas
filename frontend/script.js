@@ -24,6 +24,7 @@ async function mudarQuantidade(itemCarrinhoView) {
   if (!(Number.isNaN(num) || num < 1)) {
     qtdade = Math.floor(num);
     let autorizado = await servico.autoriza(codigo, qtdade);
+    console.log(autorizado);
     if (!autorizado) {
       saida.quantidadeIndisponivel();
       limparCarrinho();
@@ -69,7 +70,7 @@ async function calcularSubtotal() {
   if (totais !== null) total.definirValores(totais[0], totais[1], totais[2]);
   else {
     saida.erroInternoDoServidor();
-    total.limpar();
+    limparCarrinho();
   }
 }
 

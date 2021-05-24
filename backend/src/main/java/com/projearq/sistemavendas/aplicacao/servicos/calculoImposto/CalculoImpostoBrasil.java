@@ -3,6 +3,8 @@ package com.projearq.sistemavendas.aplicacao.servicos.calculoImposto;
 import com.projearq.sistemavendas.aplicacao.dtos.ProdutoDTO;
 import com.projearq.sistemavendas.negocio.strategy.ICalculoImpostoStrategy;
 
+import java.util.List;
+
 public class CalculoImpostoBrasil implements ICalculoImpostoStrategy {
 
     private final double VALOR_IMPOSTO_IVA = 0.12;

@@ -11,8 +11,8 @@ public class RestricoesNivelBaixo implements IRestricoesStrategy {
     private final String NOME = "NIVEL_BAIXO";
     private final int QUANTIDADE_MAXIMA_ITENS_VENDA = 10;
     private final int QUANTIDADE_MAXIMA_ITEM = 10;
-    private final int VALOR_MAXIMA_TOTAL_VEBDA = 10;
-    private final LocalTime HORA_MAXIMA = LocalTime.of(20, 00,0);
+    private final int VALOR_MAXIMA_TOTAL_VENDA = 10000;
+    private final LocalTime HORA_MAXIMA = LocalTime.of(07, 00,0);
 
     @Override
     public boolean restringeQuantidadeItensVenda(int quantidadeItensVenda) {
@@ -26,7 +26,7 @@ public class RestricoesNivelBaixo implements IRestricoesStrategy {
 
     @Override
     public boolean restringeValorTotalVenda(int valorTotalVenda) {
-        return this.passouDoHorarioRestricao() ? valorTotalVenda > this.VALOR_MAXIMA_TOTAL_VEBDA : false;
+        return this.passouDoHorarioRestricao() ? valorTotalVenda > this.VALOR_MAXIMA_TOTAL_VENDA : false;
     }
 
     @Override

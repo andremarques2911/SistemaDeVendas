@@ -12,7 +12,7 @@ import java.util.Set;
 public class RestricoesFactory {
 
     private Map<String, IRestricoesStrategy> strategies;
-    private final boolean possuiRestricoesAtivas = false;
+    private final boolean possuiRestricoesAtivas = true;
 
     @Autowired
     public RestricoesFactory(Set<IRestricoesStrategy> strategySet) {
