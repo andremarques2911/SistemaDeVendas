@@ -1,31 +1,21 @@
 package com.projearq.sistemavendas.aplicacao.servicos.restricoes;
 
 import com.projearq.sistemavendas.negocio.strategy.IRestricoesStrategy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.time.LocalTime;
 
 @Component
 public class RestricoesFactory {
 
-    private Map<String, IRestricoesStrategy> strategies;
-    private final boolean possuiRestricoesAtivas = true;
+    private final LocalTime HORARIO_FECHAMENTO = LocalTime.of(19,0,0);
 
-    @Autowired
-    public RestricoesFactory(Set<IRestricoesStrategy> strategySet) {
-        this.criaRestricao(strategySet);
-    }
-
-    public IRestricoesStrategy restricoes(String nome) {
-        return this.possuiRestricoesAtivas ? this.strategies.get(nome) : null;
-    }
-
-    private void criaRestricao(Set<IRestricoesStrategy> strategySet) {
-        this.strategies = new HashMap<String, IRestricoesStrategy>();
-        strategySet.forEach(strategy -> this.strategies.put(strategy.obtemNomeStrategy(), strategy));
+    public IRestricoesStrategy restricoes() {
+        if (LocalTime.now().isAfter(HORARIO_FECHAMENTO)) {
+            return new RestricoesNivelBaixo();
+        } else {
+            return null;
+        }
     }
 
 }

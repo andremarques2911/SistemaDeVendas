@@ -44,10 +44,7 @@ public class ServicoVendas {
 	}
 
 	public Integer[] calculaCustoBasico(List<ProdutoDTO> itens) throws Exception {
-		/**
-		 * TODO Alterar calculaValorDoImposto para receber a lista de itens para que seja possivel aplicar regra de imposto para itens especificos
-		 */
-		IRestricoesStrategy restricoes = this.restricoesFactory.restricoes("NIVEL_BAIXO");
+		IRestricoesStrategy restricoes = this.restricoesFactory.restricoes();
 		int subtotal = 0;
 		int imposto = 0;
 		for (ProdutoDTO item : itens) {

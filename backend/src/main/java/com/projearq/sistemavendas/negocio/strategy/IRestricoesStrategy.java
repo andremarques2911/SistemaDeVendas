@@ -8,6 +8,4 @@ public interface IRestricoesStrategy {
 
     boolean restringeValorTotalVenda(int valorTotalVenda);
 
-    String obtemNomeStrategy();
-
 }
