@@ -8,7 +8,7 @@ import java.time.LocalTime;
 @Component
 public class RestricoesFactory {
 
-    private final LocalTime HORARIO_FECHAMENTO = LocalTime.of(19,0,0);
+    private final LocalTime HORARIO_FECHAMENTO = LocalTime.of(07,0,0);
 
     public IRestricoesStrategy restricoes() {
         if (LocalTime.now().isAfter(HORARIO_FECHAMENTO)) {

@@ -8,7 +8,6 @@ import java.time.LocalTime;
 @Component
 public class RestricoesNivelBaixo implements IRestricoesStrategy {
 
-    private final String NOME = "NIVEL_BAIXO";
     private final int QUANTIDADE_MAXIMA_ITENS_VENDA = 10;
     private final int QUANTIDADE_MAXIMA_ITEM = 10;
     private final int VALOR_MAXIMA_TOTAL_VENDA = 10000;

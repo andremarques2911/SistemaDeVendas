@@ -33,7 +33,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         Estoque estoque1 = new Estoque();
         estoque1.setProduto(produto1);
         estoque1.setQuantidadeDisponivel(10);
-        this.servicoDeEstoque.adiconaEstoqueProduto(estoque1);
+        this.servicoDeEstoque.salvarEstoqueProduto(estoque1);
 
         Produto produto2 = new Produto();
         produto2.setCodigo(20L);
@@ -43,7 +43,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         Estoque estoque2 = new Estoque();
         estoque2.setProduto(produto2);
         estoque2.setQuantidadeDisponivel(0);
-        this.servicoDeEstoque.adiconaEstoqueProduto(estoque2);
+        this.servicoDeEstoque.salvarEstoqueProduto(estoque2);
 
         Produto produto3 = new Produto();
         produto3.setCodigo(30L);
@@ -53,7 +53,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         Estoque estoque3 = new Estoque();
         estoque3.setProduto(produto3);
         estoque3.setQuantidadeDisponivel(7);
-        this.servicoDeEstoque.adiconaEstoqueProduto(estoque3);
+        this.servicoDeEstoque.salvarEstoqueProduto(estoque3);
 
         Produto produto4 = new Produto();
         produto4.setCodigo(40L);
@@ -63,7 +63,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         Estoque estoque4 = new Estoque();
         estoque4.setProduto(produto4);
         estoque4.setQuantidadeDisponivel(11);
-        this.servicoDeEstoque.adiconaEstoqueProduto(estoque4);
+        this.servicoDeEstoque.salvarEstoqueProduto(estoque4);
 
         Produto produto5 = new Produto();
         produto5.setCodigo(50L);
@@ -73,7 +73,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         Estoque estoque5 = new Estoque();
         estoque5.setProduto(produto5);
         estoque5.setQuantidadeDisponivel(22);
-        this.servicoDeEstoque.adiconaEstoqueProduto(estoque5);
+        this.servicoDeEstoque.salvarEstoqueProduto(estoque5);
         log.info("Terminou de popular");
     }
 }
