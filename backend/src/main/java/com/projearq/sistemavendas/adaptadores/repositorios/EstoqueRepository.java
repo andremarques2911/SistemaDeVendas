@@ -22,7 +22,7 @@ public class EstoqueRepository implements IEstoqueRepository {
 	}
 
 	@Override
-	public Estoque adicionaEstoqueProduto(Estoque estoque) {
+	public Estoque salvarEstoqueProduto(Estoque estoque) {
 		return this.estoqueRepositoryCustom.save(estoque);
 	}
 }

@@ -10,6 +10,17 @@ class ServicoDeVendas {
         return aprovacao;
       } else {
         console.error(resposta.status, resposta.statusText);
+        let res = await resposta.json();
+        let message = res.message;
+        if (message) {
+          Swal.fire({
+            title: 'Ops!',
+            text: res.message,
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#68b0ab'
+          });
+        }
       }
     } catch (erro) {
       console.error(erro);
@@ -36,6 +47,18 @@ class ServicoDeVendas {
       if (resposta.ok) {
         let totais = await resposta.json();
         return totais;
+      } else {
+        let res = await resposta.json();
+        let message = res.message;
+        if (message) {
+          Swal.fire({
+            title: 'Ops!',
+            text: res.message,
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#68b0ab'
+          });
+        }
       }
     } catch (erro) {
       console.log(erro);
@@ -62,6 +85,18 @@ class ServicoDeVendas {
       if (resposta.ok) {
         let resp = await resposta.json();
         return resp;
+      } else {
+        let res = await resposta.json();
+        let message = res.message;
+        if (message) {
+          Swal.fire({
+            title: 'Ops!',
+            text: res.message,
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#68b0ab'
+          });
+        }
       }
     } catch (erro) {
       console.log(erro);
@@ -87,6 +122,18 @@ class ServicoDeVendas {
               dados[i].quantidade
             )
           );
+        }
+      } else {
+        let res = await resposta.json();
+        let message = res.message;
+        if (message) {
+          Swal.fire({
+            title: 'Ops!',
+            text: res.message,
+            icon: 'warning',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#68b0ab'
+          });
         }
       }
     } catch (erro) {

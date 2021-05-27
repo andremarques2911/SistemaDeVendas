@@ -69,7 +69,7 @@ async function calcularSubtotal() {
   if (totais !== null) total.definirValores(totais[0], totais[1], totais[2]);
   else {
     saida.erroInternoDoServidor();
-    total.limpar();
+    limparCarrinho();
   }
 }
 
@@ -88,9 +88,6 @@ function limparCarrinho() {
 async function checkout() {
   let itens = carrinho.carrinho.itens;
   let confirmou = await servico.confirmaVenda(itens);
-
-  console.log(confirmou);
-
   if (confirmou) {
     saida.vendaSucesso();
   } else {

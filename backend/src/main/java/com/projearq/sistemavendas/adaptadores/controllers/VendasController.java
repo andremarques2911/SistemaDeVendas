@@ -2,13 +2,10 @@ package com.projearq.sistemavendas.adaptadores.controllers;
 
 import com.projearq.sistemavendas.aplicacao.casosDeUso.*;
 import com.projearq.sistemavendas.aplicacao.dtos.ProdutoDTO;
-import com.projearq.sistemavendas.negocio.entidades.ItemVenda;
-import com.projearq.sistemavendas.negocio.entidades.Produto;
 import com.projearq.sistemavendas.negocio.entidades.Venda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -51,7 +48,7 @@ public class VendasController {
 
 	@PostMapping("/subtotal")
 	@CrossOrigin(origins = "*")
-	public Integer[] calculaSubtotal(@RequestBody final List<ProdutoDTO> itens) throws Exception {
+	public Double[] calculaSubtotal(@RequestBody final List<ProdutoDTO> itens) throws Exception {
 		return this.calculaCustoBasicoUC.run(itens);
 	}
 

@@ -6,8 +6,6 @@ public interface IRestricoesStrategy {
 
     boolean restringeQuantidadeItem(int quantidadeItem);
 
-    boolean restringeValorTotalVenda(int valorTotalVenda);
-
-    String obtemNomeStrategy();
+    boolean restringeValorTotalVenda(double valorTotalVenda);
 
 }

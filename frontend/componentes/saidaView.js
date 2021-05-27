@@ -7,15 +7,38 @@ class SaidaView {
   }
 
   quantidadeIndisponivel() {
-    this.root.innerHTML =
-      this.icError + " Quantidade excede o dispon&iacute;vel para o produto";
+    Swal.fire({
+      title: 'Ops!',
+      text: 'Quantidade excede o dispon\u00EDel para o produto!',
+      icon: 'warning',
+      confirmButtonText: 'Ok',
+      confirmButtonColor: '#68b0ab'
+    });
+
+    this.root.innerHTML = this.icError + " Quantidade excede o dispon&iacute;vel para o produto";
   }
 
   produtoIndisponivel() {
+    Swal.fire({
+      title: 'Ops!',
+      text: 'Produto Indispon\u00EDvel!',
+      icon: 'warning',
+      confirmButtonText: 'Ok',
+      confirmButtonColor: '#68b0ab'
+    });
+
     this.root.innerHTML = this.icError + " Produto Indispon&iacute;vel";
   }
 
   vendaSucesso() {
+    Swal.fire({
+      title: 'Sucesso!',
+      text: 'Venda conclu\u00EDda com sucesso!',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+      confirmButtonColor: '#68b0ab'
+    });
+
     this.root.innerHTML = this.icOk + " Venda conclu&iacute;da com sucesso";
   }
 

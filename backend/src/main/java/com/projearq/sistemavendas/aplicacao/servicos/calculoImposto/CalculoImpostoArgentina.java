@@ -3,6 +3,8 @@ package com.projearq.sistemavendas.aplicacao.servicos.calculoImposto;
 import com.projearq.sistemavendas.aplicacao.dtos.ProdutoDTO;
 import com.projearq.sistemavendas.negocio.strategy.ICalculoImpostoStrategy;
 
+import java.util.List;
+
 public class CalculoImpostoArgentina implements ICalculoImpostoStrategy {
 
     private final double VALOR_IMPOSTO_IVA = 0.1;
@@ -12,7 +14,7 @@ public class CalculoImpostoArgentina implements ICalculoImpostoStrategy {
     private final double IMPOSTO_IVA_PRODUTO_30L = 0.15;
 
     @Override
-    public Integer calculaValorDoImposto(List<ProdutoDTO> itens) {
+    public Integer calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal) {
 
         double imposto = 0;
         
