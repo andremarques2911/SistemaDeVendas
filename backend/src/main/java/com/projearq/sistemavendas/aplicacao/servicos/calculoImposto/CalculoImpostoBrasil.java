@@ -14,17 +14,13 @@ public class CalculoImpostoBrasil implements ICalculoImpostoStrategy {
     private final double VALOR_IMPOSTO_IVA_COM_VALOR_LIMITE_EXCEDENTE = 0.2;
 
     @Override
-    public Integer calculaValorDoImposto(List<ProdutoDTO> itens) {
+    public Integer calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal) {
         double imposto = 0;
 
-        for (ProdutoDTO product : itens) {
-            imposto += product.getPreco();
-        }
-
-        if (imposto <= VALOR_LIMITE_COMPRA_PARA_IMPOSTO_IVA) {
-            imposto = imposto * VALOR_IMPOSTO_IVA;
+        if (subtotal <= VALOR_LIMITE_COMPRA_PARA_IMPOSTO_IVA) {
+            imposto = subtotal * VALOR_IMPOSTO_IVA;
         } else {
-            imposto = imposto * VALOR_IMPOSTO_IVA_COM_VALOR_LIMITE_EXCEDENTE;
+            imposto = subtotal * VALOR_IMPOSTO_IVA_COM_VALOR_LIMITE_EXCEDENTE;
         }
         
         return (int) imposto;

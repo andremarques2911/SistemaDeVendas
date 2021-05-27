@@ -9,9 +9,9 @@ import javax.persistence.*;
 public class ItemVenda {
 
 	private Long id;
-	private int quantidade;
-	private int precoUnitVenda;
-	private long imposto;
+	private double quantidade;
+	private double precoUnitVenda;
+	private double imposto;
 	private Produto produto;
 	private Venda venda;
 
@@ -27,27 +27,27 @@ public class ItemVenda {
 		this.id = id;
 	}
 
-	public int getQuantidade() {
+	public double getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(double quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public int getPrecoUnitVenda() {
+	public double getPrecoUnitVenda() {
 		return precoUnitVenda;
 	}
 
-	public void setPrecoUnitVenda(int precoUnitVenda) {
+	public void setPrecoUnitVenda(double precoUnitVenda) {
 		this.precoUnitVenda = precoUnitVenda;
 	}
 
-	public long getImposto() {
+	public double getImposto() {
 		return imposto;
 	}
 
-	public void setImposto(long imposto) {
+	public void setImposto(double imposto) {
 		this.imposto = imposto;
 	}
 

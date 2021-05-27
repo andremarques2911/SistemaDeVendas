@@ -1,6 +1,5 @@
 package com.projearq.sistemavendas.negocio.servicos;
 
-import com.projearq.sistemavendas.aplicacao.dtos.ProdutoDTO;
 import com.projearq.sistemavendas.negocio.entidades.Estoque;
 import com.projearq.sistemavendas.negocio.repositorios.IEstoqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;

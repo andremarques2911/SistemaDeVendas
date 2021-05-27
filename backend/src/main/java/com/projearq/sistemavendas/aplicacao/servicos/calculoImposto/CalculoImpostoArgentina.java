@@ -14,7 +14,7 @@ public class CalculoImpostoArgentina implements ICalculoImpostoStrategy {
     private final double IMPOSTO_IVA_PRODUTO_30L = 0.15;
 
     @Override
-    public Integer calculaValorDoImposto(List<ProdutoDTO> itens) {
+    public Integer calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal) {
 
         double imposto = 0;
         

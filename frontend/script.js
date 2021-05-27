@@ -24,7 +24,6 @@ async function mudarQuantidade(itemCarrinhoView) {
   if (!(Number.isNaN(num) || num < 1)) {
     qtdade = Math.floor(num);
     let autorizado = await servico.autoriza(codigo, qtdade);
-    console.log(autorizado);
     if (!autorizado) {
       saida.quantidadeIndisponivel();
       limparCarrinho();
@@ -89,9 +88,6 @@ function limparCarrinho() {
 async function checkout() {
   let itens = carrinho.carrinho.itens;
   let confirmou = await servico.confirmaVenda(itens);
-
-  console.log(confirmou);
-
   if (confirmou) {
     saida.vendaSucesso();
   } else {

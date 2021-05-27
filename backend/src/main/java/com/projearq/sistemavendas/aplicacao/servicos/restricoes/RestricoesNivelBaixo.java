@@ -3,8 +3,6 @@ package com.projearq.sistemavendas.aplicacao.servicos.restricoes;
 import com.projearq.sistemavendas.negocio.strategy.IRestricoesStrategy;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalTime;
-
 @Component
 public class RestricoesNivelBaixo implements IRestricoesStrategy {
 
@@ -23,7 +21,7 @@ public class RestricoesNivelBaixo implements IRestricoesStrategy {
     }
 
     @Override
-    public boolean restringeValorTotalVenda(int valorTotalVenda) {
+    public boolean restringeValorTotalVenda(double valorTotalVenda) {
         return valorTotalVenda > this.VALOR_MAXIMA_TOTAL_VENDA;
     }
 

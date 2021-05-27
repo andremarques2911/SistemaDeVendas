@@ -24,13 +24,13 @@ public class CalculaCustoBasicoUC {
 		this.calculoImpostoStrategy = calculoImpostoStrategy;
 	}
 
-	public Integer[] run(List<ProdutoDTO> itens) throws Exception {
+	public Double[] run(List<ProdutoDTO> itens) {
 		IRestricoesStrategy restricoes = this.restricoesFactory.restricoes();
-		int subtotal = 0;
-		int imposto = 0;
+		double subtotal = 0;
+		double imposto = 0;
 		subtotal = this.servicoVendas.calculaSubtotal(itens, restricoes, subtotal);
-		imposto = this.calculoImpostoStrategy.calculaValorDoImposto(itens);
-		final Integer[] resp = new Integer[3];
+		imposto = this.calculoImpostoStrategy.calculaValorDoImposto(itens, subtotal);
+		final Double[] resp = new Double[3];
 		resp[0] = subtotal;
 		resp[1] = imposto;
 		resp[2] = subtotal + imposto;

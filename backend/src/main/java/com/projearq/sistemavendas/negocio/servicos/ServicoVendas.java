@@ -1,6 +1,7 @@
 package com.projearq.sistemavendas.negocio.servicos;
 
 import com.projearq.sistemavendas.aplicacao.dtos.ProdutoDTO;
+import com.projearq.sistemavendas.aplicacao.excecoes.ExcecaoDeNegocio;
 import com.projearq.sistemavendas.aplicacao.servicos.restricoes.RestricoesFactory;
 import com.projearq.sistemavendas.negocio.entidades.Estoque;
 import com.projearq.sistemavendas.negocio.entidades.ItemVenda;
@@ -12,7 +13,6 @@ import com.projearq.sistemavendas.negocio.strategy.IRestricoesStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,17 +42,17 @@ public class ServicoVendas {
 		return this.vendasRepository.consultaVendas();
 	}
 
-	public void validaRestricoesVenda(int quantidadeItens, IRestricoesStrategy restricoes, Integer totalVenda) throws Exception {
+	public void validaRestricoesVenda(int quantidadeItens, IRestricoesStrategy restricoes, double totalVenda) {
 		if (restricoes != null && restricoes.restringeQuantidadeItensVenda(quantidadeItens))
-			throw new Exception("Restrição na quantidade total de itens da venda!");
+			throw new ExcecaoDeNegocio("Restrição na quantidade total de itens da venda!");
 		if (restricoes != null && restricoes.restringeValorTotalVenda(totalVenda))
-			throw new Exception("Restrição no total da venda!");
+			throw new ExcecaoDeNegocio("Restrição no total da venda!");
 	}
 
-	public int calculaSubtotal(List<ProdutoDTO> itens, IRestricoesStrategy restricoes, int subtotal) throws Exception {
+	public double calculaSubtotal(List<ProdutoDTO> itens, IRestricoesStrategy restricoes, double subtotal) {
 		for (ProdutoDTO item : itens) {
 			if (restricoes != null && restricoes.restringeQuantidadeItem(item.getQuantidade()))
-				throw new Exception("Restrição na quantidade para esse item!");
+				throw new ExcecaoDeNegocio("Restrição na quantidade para esse item!");
 			Produto produto = this.servicoDeProduto.buscaProduto(item.getCodigo());
 			subtotal += produto.getPrecoUnitario() * item.getQuantidade();
 		}

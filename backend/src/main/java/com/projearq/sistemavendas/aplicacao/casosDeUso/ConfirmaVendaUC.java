@@ -28,9 +28,9 @@ public class ConfirmaVendaUC {
         this.calculaCustoBasicoUC = calculaCustoBasicoUC;
     }
 
-    public boolean run(List<ProdutoDTO> itens) throws Exception {
+    public boolean run(List<ProdutoDTO> itens) {
         List<ItemVenda> itensVenda = new ArrayList<>();
-        Integer[] subtotais = this.calculaCustoBasicoUC.run(itens);
+        Double[] subtotais = this.calculaCustoBasicoUC.run(itens);
         for (ProdutoDTO item : itens) {
             this.servicoDeEstoque.diminuiQuantidadeItemEstoque(item.getCodigo(), item.getQuantidade());
             ItemVenda itemVenda = new ItemVenda();

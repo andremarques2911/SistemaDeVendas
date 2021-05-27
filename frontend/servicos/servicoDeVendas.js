@@ -5,9 +5,6 @@ class ServicoDeVendas {
 
     try {
       let resposta = await fetch(url);
-      console.log("TESTE");
-      console.log(resposta);
-      
       if (resposta.ok) {
         let aprovacao = await resposta.json();
         return aprovacao;

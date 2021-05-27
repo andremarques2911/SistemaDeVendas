@@ -8,8 +8,6 @@ public interface IVendasRepository {
 
 	void salvar(Venda venda);
 
-	Venda recupera(int numero);
-
 	List<Venda> consultaVendas();
 
 }
