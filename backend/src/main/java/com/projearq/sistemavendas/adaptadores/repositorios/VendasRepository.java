@@ -24,11 +24,6 @@ public class VendasRepository implements IVendasRepository {
 	}
 
 	@Override
-	public Venda recupera(int numero) {
-		return this.vendasRepositoryCustom.findByNumero(numero);
-	}
-
-	@Override
 	public List<Venda> consultaVendas() {
 		return this.vendasRepositoryCustom.findAll();
 	}
