@@ -30,7 +30,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         .descricao("Geladeira")
         .precoUnitario(2500.55)
         .build();
-        this.servicoDeProduto.adicionaProduto(produto1);*/
+        this.servicoDeProduto.adicionaProduto(produto1);
 
         Estoque estoque1 = new estoque.Builder()
         .produto(produto1)
@@ -43,7 +43,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         .descricao("Fogao")
         .precoUnitario(1200.00)
         .build();
-        this.servicoDeProduto.adicionaProduto(produto2);*/
+        this.servicoDeProduto.adicionaProduto(produto2);
 
         Estoque estoque2 = new estoque.Builder()
         .produto(produto2)
@@ -56,7 +56,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         .descricao("Lava louça")
         .precoUnitario(4300.00)
         .build();
-        this.servicoDeProduto.adicionaProduto(produto3);*/
+        this.servicoDeProduto.adicionaProduto(produto3);
 
         Estoque estoque3 = new estoque.Builder()
         .produto(produto3)
@@ -69,7 +69,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         .descricao("Lava roupa")
         .precoUnitario(3350.00)
         .build();
-        this.servicoDeProduto.adicionaProduto(produto4);*/
+        this.servicoDeProduto.adicionaProduto(produto4);
 
         Estoque estoque4 = new estoque.Builder()
         .produto(produto4)
@@ -82,7 +82,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         .descricao("Aspirador de pó")
         .precoUnitario(780.00)
         .build();
-        this.servicoDeProduto.adicionaProduto(produto5);*/
+        this.servicoDeProduto.adicionaProduto(produto5);
 
         Estoque estoque5 = new estoque.Builder()
         .produto(produto5)
