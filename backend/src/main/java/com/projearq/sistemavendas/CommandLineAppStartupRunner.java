@@ -23,12 +23,12 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         log.info("Começou a popular");
         Produto produto1 = new Produto();
         produto1.setCodigo(10L);
         produto1.setDescricao("Geladeira");
-        produto1.setPrecoUnitario(2500.0);
+        produto1.setPrecoUnitario(2500.55);
         this.servicoDeProduto.adicionaProduto(produto1);
         Estoque estoque1 = new Estoque();
         estoque1.setProduto(produto1);

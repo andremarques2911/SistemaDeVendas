@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ICalculoImpostoStrategy {
 
-    Integer calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal);
+    Double calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal);
 
 }

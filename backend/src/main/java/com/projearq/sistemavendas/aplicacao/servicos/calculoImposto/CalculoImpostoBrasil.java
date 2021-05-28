@@ -14,8 +14,8 @@ public class CalculoImpostoBrasil implements ICalculoImpostoStrategy {
     private final double VALOR_IMPOSTO_IVA_COM_VALOR_LIMITE_EXCEDENTE = 0.2;
 
     @Override
-    public Integer calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal) {
-        double imposto = 0;
+    public Double calculaValorDoImposto(List<ProdutoDTO> itens, double subtotal) {
+        double imposto;
 
         if (subtotal <= VALOR_LIMITE_COMPRA_PARA_IMPOSTO_IVA) {
             imposto = subtotal * VALOR_IMPOSTO_IVA;
@@ -23,6 +23,6 @@ public class CalculoImpostoBrasil implements ICalculoImpostoStrategy {
             imposto = subtotal * VALOR_IMPOSTO_IVA_COM_VALOR_LIMITE_EXCEDENTE;
         }
         
-        return (int) imposto;
+        return imposto;
     }
 }
