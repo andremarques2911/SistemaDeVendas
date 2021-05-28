@@ -25,66 +25,66 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        Produto produto1 = new produto.Builder()
-        .codigo(10)
+        Produto produto1 = new Produto.Builder()
+        .codigo(10L)
         .descricao("Geladeira")
         .precoUnitario(2500.55)
         .build();
         this.servicoDeProduto.adicionaProduto(produto1);
 
-        Estoque estoque1 = new estoque.Builder()
+        Estoque estoque1 = new Estoque.Builder()
         .produto(produto1)
         .quantidadeDisponivel(10)
         .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque1);
 
-        Produto produto2 = new produto.Builder()
+        Produto produto2 = new Produto.Builder()
         .codigo(20L)
         .descricao("Fogao")
         .precoUnitario(1200.00)
         .build();
         this.servicoDeProduto.adicionaProduto(produto2);
 
-        Estoque estoque2 = new estoque.Builder()
+        Estoque estoque2 = new Estoque.Builder()
         .produto(produto2)
         .quantidadeDisponivel(0)
         .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque2);
 
-        Produto produto3 = new produto.Builder()
+        Produto produto3 = new Produto.Builder()
         .codigo(30L)
         .descricao("Lava louça")
         .precoUnitario(4300.00)
         .build();
         this.servicoDeProduto.adicionaProduto(produto3);
 
-        Estoque estoque3 = new estoque.Builder()
+        Estoque estoque3 = new Estoque.Builder()
         .produto(produto3)
         .quantidadeDisponivel(7)
         .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque3);
 
-        Produto produto4 = new produto.Builder()
+        Produto produto4 = new Produto.Builder()
         .codigo(40L)
         .descricao("Lava roupa")
         .precoUnitario(3350.00)
         .build();
         this.servicoDeProduto.adicionaProduto(produto4);
 
-        Estoque estoque4 = new estoque.Builder()
+        Estoque estoque4 = new Estoque.Builder()
         .produto(produto4)
         .quantidadeDisponivel(11)
         .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque4);
 
-        Produto produto5 = new produto.Builder()
+        Produto produto5 = new Produto.Builder()
         .codigo(50L)
         .descricao("Aspirador de pó")
         .precoUnitario(780.00)
         .build();
         this.servicoDeProduto.adicionaProduto(produto5);
 
-        Estoque estoque5 = new estoque.Builder()
+        Estoque estoque5 = new Estoque.Builder()
         .produto(produto5)
         .quantidadeDisponivel(22)
         .build();
