@@ -10,34 +10,39 @@ public class Estoque {
 	private int quantidadeDisponivel;
 	private Produto produto;
 
-	@Id
-	@SequenceGenerator(allocationSize = 1, name = "id_estoque_seq", sequenceName = "id_estoque_seq")
-	@GeneratedValue(generator = "id_estoque_seq", strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_estoque")
-	public Long getId() {
-		return id;
-	}
+    public static class Builder {
+        private Long id = 0;
+        private int quantidadeDisponivel = 0;
+        private Produto produto = new Produto(0,0,"-",0.0);
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+        public Builder() {}
+		
+        @Id
+    	@SequenceGenerator(allocationSize = 1, name = "id_estoque_seq", sequenceName = "id_estoque_seq")
+	    @GeneratedValue(generator = "id_estoque_seq", strategy = GenerationType.SEQUENCE)
+	    @Column(name = "id_estoque")
+        public Builder getId() {return this.id;}
 
-	public int getQuantidadeDisponivel() {
-		return quantidadeDisponivel;
-	}
+        public Builder setId(Long id) {this.id = id;}
+        
+        public Builder getQuantidadeDisponivel() {return this.quantidadeDisponivel}
 
-	public void setQuantidadeDisponivel(int quantidadeDisponivel) {
-		this.quantidadeDisponivel = quantidadeDisponivel;
-	}
+        public Builder setQuantidadeDisponivel(int quantidadeDisponivel) {this.quantidadeDisponivel = quantidadeDisponivel;}
 
-	@OneToOne
-	@JoinColumn(name = "id_produto", nullable = false)
-	public Produto getProduto() {
-		return produto;
-	}
+        @OneToOne
+	    @JoinColumn(name = "id_produto", nullable = false)
+        public Builder getProduto() {return this.produto}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
+        public Builder setProduto(Produto produtor) {this.produto = produto;}
+
+        public Estoque build() {return new Estoque(id, quantidadeDisponivel, produto);}
+        //public Estoque build() {return new EstoqueB(this);}
+
+        private Estoque(Builder builder) {
+            this.id = builder.id;
+            this.quantidadeDisponivel = builder.quantidadeDisponivel;
+            this.produto = builder.produto;
+        }
+    }
 
 }

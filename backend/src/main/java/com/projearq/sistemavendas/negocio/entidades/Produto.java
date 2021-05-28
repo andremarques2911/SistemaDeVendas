@@ -6,45 +6,48 @@ import javax.persistence.*;
 @Table(name = "produtos")
 public class Produto {
 
-	private Long id;
+    private Long id;
 	private Long codigo;
 	private String descricao;
 	private double precoUnitario;
+    
+    public static class Builder {
 
-	@Id
-	@SequenceGenerator(allocationSize = 1, name = "id_produto_seq", sequenceName = "id_produto_seq")
-	@GeneratedValue(generator = "id_produto_seq", strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_produto")
-	public Long getId() {
-		return id;
-	}
+        private Long id = 0;
+        private Long codigo = 0;
+        private String descricao = "-";
+        private double precoUnitario = 0;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+        public Builder() {}
 
-	public Long getCodigo() {
-		return codigo;
-	}
+        @Id
+        @SequenceGenerator(allocationSize = 1, name = "id_produto_seq", sequenceName = "id_produto_seq")
+        @GeneratedValue(generator = "id_produto_seq", strategy = GenerationType.SEQUENCE)
+        @Column(name = "id_produto")
+        public Builder getId() {return this.id;}
 
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
-	}
+        public Builder setId(Long id) {this.id = id;}
 
-	public String getDescricao() {
-		return descricao;
-	}
+        public Builder getCodigo() {return this.codigo;}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+        public Builder setCodigo(Long codigo) {this.codigo = codigo;}
 
-	public double getPrecoUnitario() {
-		return precoUnitario;
-	}
+        public Builder getDescricao() {return this.descricao;}
 
-	public void setPrecoUnitario(double precoUnitario) {
-		this.precoUnitario = precoUnitario;
-	}
+        public Builder setDescricao(String descricao) {this.descricao = descricao;}
 
+        public Builder getPrecoUnitario() {return this.precoUnitario;}
+
+        public Builder setPrecoUnitario(double precoUnitario) {this.precoUnitario = precoUnitario;}
+
+        public Produto build() {return new Produto(id, Codigo, Descricao, PrecoUnitario);}
+        //public Produto build() {return new Produto(this);}
+
+        private Produto(Builder builder) {
+            this.id = builder.id;
+            this.codigo = builder.codigo;
+            this.descricao = builder.descricao;
+            this.precoUnitario = builder.precoUnitario;
+        }
+    }
 }

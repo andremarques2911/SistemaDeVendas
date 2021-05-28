@@ -10,47 +10,50 @@ import java.util.List;
 @Table(name = "vendas")
 public class Venda {
 
-	private Long id;
-	private long numero;
+    private Long id;
+	private Long numero;
 	private Date data;
 	private List<ItemVenda> itensVenda;
 
-	@Id
-	@SequenceGenerator(allocationSize = 1, name = "id_venda_seq", sequenceName = "id_venda_seq")
-	@GeneratedValue(generator = "id_venda_seq", strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_venda_seq")
-	public Long getId() {
-		return id;
-	}
+    public static class Builder {
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+        private Long id = 0;
+        private Long numero = 0;
+        private Date data = new Date();
+        private List<ItemVenda> itensVenda = new List<ItemVenda>();
 
-	public long getNumero() {
-		return numero;
-	}
+        public Builder() {}
 
-	public void setNumero(long numero) {
-		this.numero = numero;
-	}
+        @Id
+        @SequenceGenerator(allocationSize = 1, name = "id_venda_seq", sequenceName = "id_venda_seq")
+        @GeneratedValue(generator = "id_venda_seq", strategy = GenerationType.SEQUENCE)
+        @Column(name = "id_venda_seq")
+        public Builder getId() {return this.id;}
 
-	public Date getData() {
-		return data;
-	}
+        public Builder setId(Long id) {this.id = id;}
 
-	public void setData(Date data) {
-		this.data = data;
-	}
+        public Builder getNumero() {return this.numero;}
 
-	@JsonManagedReference
-	@OneToMany(mappedBy = "venda")
-	public List<ItemVenda> getItensVenda() {
-		return itensVenda;
-	}
+        public Builder setNumero(Long numero) {this.numero = numero;}
 
-	public void setItensVenda(List<ItemVenda> itensVenda) {
-		this.itensVenda = itensVenda;
-	}
+        public Builder getData() {return this.data;}
 
+        public Builder setData(Date data) {this.data = data;}
+
+        @JsonManagedReference
+        @OneToMany(mappedBy = "venda")
+        public Builder getItensVenda() {return this.itensVenda;}
+
+        public Builder setItensVenda(List<ItemVenda> itensVenda) {this.itensVenda = itensVenda;}
+
+        public Venda build() {return new Venda(id, numero, data, itensVenda);}
+        //public Venda build() {return new Venda(this);}
+
+        private Venda(Builder builder) {
+            this.id = builder.id;
+            this.numero = builder.numero;
+            this.data = builder.data;
+            this.itensVenda = builder.itensVenda;
+        }
+    }
 }

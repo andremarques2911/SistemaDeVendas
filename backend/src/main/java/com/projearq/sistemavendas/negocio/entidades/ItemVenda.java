@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "itens_venda")
 public class ItemVenda {
-
 	private Long id;
 	private double quantidade;
 	private double precoUnitVenda;
@@ -15,61 +14,61 @@ public class ItemVenda {
 	private Produto produto;
 	private Venda venda;
 
-	@Id
-	@SequenceGenerator(allocationSize = 1, name = "id_itens_venda_seq", sequenceName = "id_itens_venda_seq")
-	@GeneratedValue(generator = "id_itens_venda_seq", strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_itens_venda")
-	public Long getId() {
-		return id;
-	}
+    public static class Builder {
+        private Long id = 0;
+        private double quantidade = 0;
+        private double precoUnitVenda = 0;
+        private double imposto = 0;
+        private Produto produto = new Produto(0,0,"-",0.0);
+		private Date data = new Date();
+		private List<ItemVenda> itensVenda = new List<ItemVenda>();
+        private Venda venda = new Venda(0,0,data,itensVenda);
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+        public Builder() {}
 
-	public double getQuantidade() {
-		return quantidade;
-	}
+        @Id
+        @SequenceGenerator(allocationSize = 1, name = "id_itens_venda_seq", sequenceName = "id_itens_venda_seq")
+        @GeneratedValue(generator = "id_itens_venda_seq", strategy = GenerationType.SEQUENCE)
+        @Column(name = "id_itens_venda")
+        public Builder getId() {return this.id;}
 
-	public void setQuantidade(double quantidade) {
-		this.quantidade = quantidade;
-	}
+        public Builder setId(Long id) {this.id = id;}
 
-	public double getPrecoUnitVenda() {
-		return precoUnitVenda;
-	}
+        public Builder getQuantidade() {return this.quantidade;}
 
-	public void setPrecoUnitVenda(double precoUnitVenda) {
-		this.precoUnitVenda = precoUnitVenda;
-	}
+        public Builder setQuantidade(double quantidade) {this.quantidade = quantidade;}
 
-	public double getImposto() {
-		return imposto;
-	}
+        public Builder getPrecoUnitVenda() {return this.precoUnitVenda;}
 
-	public void setImposto(double imposto) {
-		this.imposto = imposto;
-	}
+        public Builder setPrecoUnitVenda(double precoUnitVenda) {this.precoUnitVenda = precoUnitVenda;}
 
-	@OneToOne
-	@JoinColumn(name = "id_produto", nullable = false)
-	public Produto getProduto() {
-		return produto;
-	}
+        public Builder getImposto() {return this.imposto;}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
+        public Builder setImposto(double imposto) {this.imposto = imposto;}
 
-	@JsonBackReference
-	@ManyToOne
-	@JoinColumn(name = "id_venda", nullable = false)
-	public Venda getVenda() {
-		return venda;
-	}
+        @OneToOne
+        @JoinColumn(name = "id_produto", nullable = false)
+        public Builder getProduto() {return this.produto;}
 
-	public void setVenda(Venda venda) {
-		this.venda = venda;
-	}
+        public Builder setProduto(Produto produto) {this.produto = produto;}
 
+        @JsonBackReference
+        @ManyToOne
+        @JoinColumn(name = "id_venda", nullable = false)
+        public Builder getVenda() {return this.venda;}
+
+        public Builder setVenda(Venda venda) {this.venda = venda;}
+
+        public ItemVenda build() {return new ItemVenda(id, quantidade, precoUnitVenda, imposto, produto, venda);}
+        //public ItemVenda build() {return new ItemVenda(this);}
+
+        private ItemVenda(Builder builder) {
+            this.id = builder.id;
+            this.quantidade = builder.quantidade;
+            this.precoUnitVenda = builder.precoUnitVenda;
+            this.imposto = builder.imposto;
+            this.produto = builder.produto;
+            this.venda = builder.venda;
+        }    
+    }
 }
