@@ -33,13 +33,13 @@ public class ConfirmaVendaUC {
         Double[] subtotais = this.calculaCustoBasicoUC.run(itens);
         for (ProdutoDTO item : itens) {
             this.servicoDeEstoque.diminuiQuantidadeItemEstoque(item.getCodigo(), item.getQuantidade());
-            ItemVenda itemVenda = new ItemVenda();
-            itemVenda.setQuantidade(item.getQuantidade());
-            itemVenda.setPrecoUnitVenda(subtotais[0]);
-            itemVenda.setImposto(subtotais[1]);
             Produto produto = this.servicoDeProduto.buscaProduto(item.getCodigo());
-            itemVenda.setProduto(produto);
-            itensVenda.add(itemVenda);
+            ItemVenda itemVenda = new itemVenda.Builder()
+            .quantidade(item.getQuantidade());
+            .precoUnitVenda(subtotais[0]);
+            .imposto(subtotais[1]);
+            .produto(produto);
+            .add(itemVenda);
         }
         this.servicoVendas.salvarVenda(itensVenda);
         return true;

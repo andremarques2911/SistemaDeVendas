@@ -60,9 +60,9 @@ public class ServicoVendas {
 	}
 
 	public void salvarVenda(List<ItemVenda> itensVenda) {
-		Venda venda = new Venda();
-		venda.setData(new Date());
-		venda.setItensVenda(itensVenda);
+		Venda venda = new venda.Builder()
+		.data(new Date());
+		.itensVenda(itensVenda);
 		this.vendasRepository.salvar(venda);
 	}
 

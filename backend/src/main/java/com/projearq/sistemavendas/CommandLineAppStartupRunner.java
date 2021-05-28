@@ -24,56 +24,70 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        log.info("Começou a popular");
-        Produto produto1 = new Produto();
-        produto1.setCodigo(10L);
-        produto1.setDescricao("Geladeira");
-        produto1.setPrecoUnitario(2500.55);
-        this.servicoDeProduto.adicionaProduto(produto1);
-        Estoque estoque1 = new Estoque();
-        estoque1.setProduto(produto1);
-        estoque1.setQuantidadeDisponivel(10);
+
+        Produto produto1 = new produto.Builder()
+        .codigo(10)
+        .descricao("Geladeira")
+        .precoUnitario(2500.55)
+        .build();
+        this.servicoDeProduto.adicionaProduto(produto1);*/
+
+        Estoque estoque1 = new estoque.Builder()
+        .produto(produto1)
+        .quantidadeDisponivel(10)
+        .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque1);
 
-        Produto produto2 = new Produto();
-        produto2.setCodigo(20L);
-        produto2.setDescricao("Fogao");
-        produto2.setPrecoUnitario(1200.0);
-        this.servicoDeProduto.adicionaProduto(produto2);
-        Estoque estoque2 = new Estoque();
-        estoque2.setProduto(produto2);
-        estoque2.setQuantidadeDisponivel(0);
+        Produto produto2 = new produto.Builder()
+        .codigo(20L)
+        .descricao("Fogao")
+        .precoUnitario(1200.00)
+        .build();
+        this.servicoDeProduto.adicionaProduto(produto2);*/
+
+        Estoque estoque2 = new estoque.Builder()
+        .produto(produto2)
+        .quantidadeDisponivel(0)
+        .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque2);
 
-        Produto produto3 = new Produto();
-        produto3.setCodigo(30L);
-        produto3.setDescricao("Lava louça");
-        produto3.setPrecoUnitario(4300.0);
-        this.servicoDeProduto.adicionaProduto(produto3);
-        Estoque estoque3 = new Estoque();
-        estoque3.setProduto(produto3);
-        estoque3.setQuantidadeDisponivel(7);
+        Produto produto3 = new produto.Builder()
+        .codigo(30L)
+        .descricao("Lava louça")
+        .precoUnitario(4300.00)
+        .build();
+        this.servicoDeProduto.adicionaProduto(produto3);*/
+
+        Estoque estoque3 = new estoque.Builder()
+        .produto(produto3)
+        .quantidadeDisponivel(7)
+        .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque3);
 
-        Produto produto4 = new Produto();
-        produto4.setCodigo(40L);
-        produto4.setDescricao("Lava roupa");
-        produto4.setPrecoUnitario(3350.0);
-        this.servicoDeProduto.adicionaProduto(produto4);
-        Estoque estoque4 = new Estoque();
-        estoque4.setProduto(produto4);
-        estoque4.setQuantidadeDisponivel(11);
+        Produto produto4 = new produto.Builder()
+        .codigo(40L)
+        .descricao("Lava roupa")
+        .precoUnitario(3350.00)
+        .build();
+        this.servicoDeProduto.adicionaProduto(produto4);*/
+
+        Estoque estoque4 = new estoque.Builder()
+        .produto(produto4)
+        .quantidadeDisponivel(11)
+        .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque4);
 
-        Produto produto5 = new Produto();
-        produto5.setCodigo(50L);
-        produto5.setDescricao("Aspirador de pó");
-        produto5.setPrecoUnitario(780.0);
-        this.servicoDeProduto.adicionaProduto(produto5);
-        Estoque estoque5 = new Estoque();
-        estoque5.setProduto(produto5);
-        estoque5.setQuantidadeDisponivel(22);
+        Produto produto5 = new produto.Builder()
+        .codigo(50L)
+        .descricao("Aspirador de pó")
+        .precoUnitario(780.00)
+        .build();
+        this.servicoDeProduto.adicionaProduto(produto5);*/
+
+        Estoque estoque5 = new estoque.Builder()
+        .produto(produto5)
+        .quantidadeDisponivel(22)
+        .build();
         this.servicoDeEstoque.salvarEstoqueProduto(estoque5);
-        log.info("Terminou de popular");
     }
 }
