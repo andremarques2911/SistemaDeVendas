@@ -6,43 +6,40 @@ import javax.persistence.*;
 @Table(name = "estoque")
 public class Estoque {
 
+    @Id
+    @SequenceGenerator(allocationSize = 1, name = "id_estoque_seq", sequenceName = "id_estoque_seq")
+    @GeneratedValue(generator = "id_estoque_seq", strategy = GenerationType.SEQUENCE)
+	@Column(name = "id_estoque")
 	private Long id;
 	private int quantidadeDisponivel;
+    @OneToOne
+	@JoinColumn(name = "id_produto", nullable = false)
 	private Produto produto;
 
     public static class Builder {
-        private Long id = 0;
+        private Long id = null;
         private int quantidadeDisponivel = 0;
-        private Produto produto = new Produto(0,0,"-",0.0);
+        private Produto produto = null;
 
         public Builder() {}
 		
-        @Id
-    	@SequenceGenerator(allocationSize = 1, name = "id_estoque_seq", sequenceName = "id_estoque_seq")
-	    @GeneratedValue(generator = "id_estoque_seq", strategy = GenerationType.SEQUENCE)
-	    @Column(name = "id_estoque")
-        public Builder getId() {return this.id;}
+        public Builder quantidadeDisponivel(int quantidadeDisponivel) {this.quantidadeDisponivel = quantidadeDisponivel; return this;}
 
-        public Builder setId(Long id) {this.id = id;}
-        
-        public Builder getQuantidadeDisponivel() {return this.quantidadeDisponivel}
+        public Builder produto(Produto produto) {this.produto = produto; return this;}
 
-        public Builder setQuantidadeDisponivel(int quantidadeDisponivel) {this.quantidadeDisponivel = quantidadeDisponivel;}
+        public Estoque build() {return new EstoqueB(this);}
 
-        @OneToOne
-	    @JoinColumn(name = "id_produto", nullable = false)
-        public Builder getProduto() {return this.produto}
-
-        public Builder setProduto(Produto produtor) {this.produto = produto;}
-
-        public Estoque build() {return new Estoque(id, quantidadeDisponivel, produto);}
-        //public Estoque build() {return new EstoqueB(this);}
-
-        private Estoque(Builder builder) {
-            this.id = builder.id;
-            this.quantidadeDisponivel = builder.quantidadeDisponivel;
-            this.produto = builder.produto;
-        }
     }
 
+    private Estoque(Builder builder) {
+        this.id = builder.id;
+        this.quantidadeDisponivel = builder.quantidadeDisponivel;
+        this.produto = builder.produto;
+    }
+
+    public int getQuantidadeDisponivel() {return this.quantidadeDisponivel;}
+
+    public Produto getProduto() {return this.produto;}
+
+    public Long getId() {return this.id;}
 }
