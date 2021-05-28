@@ -34,7 +34,7 @@ public class ConfirmaVendaUC {
         for (ProdutoDTO item : itens) {
             this.servicoDeEstoque.diminuiQuantidadeItemEstoque(item.getCodigo(), item.getQuantidade());
             Produto produto = this.servicoDeProduto.buscaProduto(item.getCodigo());
-            ItemVenda itemVenda = new itemVenda.Builder()
+            ItemVenda itemVenda = new ItemVenda.Builder()
             .quantidade(item.getQuantidade())
             .precoUnitVenda(subtotais[0])
             .imposto(subtotais[1])
