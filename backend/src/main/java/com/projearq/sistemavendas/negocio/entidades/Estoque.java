@@ -11,10 +11,14 @@ public class Estoque {
     @GeneratedValue(generator = "id_estoque_seq", strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_estoque")
 	private Long id;
+
 	private int quantidadeDisponivel;
+
     @OneToOne
 	@JoinColumn(name = "id_produto", nullable = false)
 	private Produto produto;
+
+    public Estoque() {}
 
     public static class Builder {
         private Long id = null;
@@ -27,7 +31,7 @@ public class Estoque {
 
         public Builder produto(Produto produto) {this.produto = produto; return this;}
 
-        public Estoque build() {return new EstoqueB(this);}
+        public Estoque build() {return new Estoque(this);}
 
     }
 
@@ -37,9 +41,22 @@ public class Estoque {
         this.produto = builder.produto;
     }
 
+    public Long getId() {return this.id;}
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public int getQuantidadeDisponivel() {return this.quantidadeDisponivel;}
+
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
+        this.quantidadeDisponivel = quantidadeDisponivel;
+    }
 
     public Produto getProduto() {return this.produto;}
 
-    public Long getId() {return this.id;}
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
 }

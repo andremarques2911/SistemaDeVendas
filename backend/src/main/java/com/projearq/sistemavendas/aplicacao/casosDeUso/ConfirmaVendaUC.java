@@ -39,7 +39,8 @@ public class ConfirmaVendaUC {
             .precoUnitVenda(subtotais[0])
             .imposto(subtotais[1])
             .produto(produto)
-            .add(itemVenda);
+            .build();
+            itensVenda.add(itemVenda);
         }
         this.servicoVendas.salvarVenda(itensVenda);
         return true;

@@ -11,10 +11,15 @@ public class Produto {
     @GeneratedValue(generator = "id_produto_seq", strategy = GenerationType.SEQUENCE)
     @Column(name = "id_produto")
     private Long id;
+
 	private Long codigo;
+
 	private String descricao;
+
 	private double precoUnitario;
-    
+
+    public Produto() {}
+
     public static class Builder {
 		private Long id = null;
         private Long codigo = null;
@@ -38,11 +43,36 @@ public class Produto {
 		this.precoUnitario = builder.precoUnitario;
 	}
 
-    public Long getId() {return this.id;}
+    public Long getId() {
+        return id;
+    }
 
-	public Long getCodigo() {return this.codigo;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getDescricao() {return this.descricao;}
+    public Long getCodigo() {
+        return codigo;
+    }
 
-	public double getPrecoUnitario() {return this.precoUnitario;}
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getPrecoUnitario() {
+        return precoUnitario;
+    }
+
+    public void setPrecoUnitario(double precoUnitario) {
+        this.precoUnitario = precoUnitario;
+    }
+
 }

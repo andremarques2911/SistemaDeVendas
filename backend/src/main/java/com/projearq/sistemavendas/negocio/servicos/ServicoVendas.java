@@ -61,8 +61,9 @@ public class ServicoVendas {
 
 	public void salvarVenda(List<ItemVenda> itensVenda) {
 		Venda venda = new Venda.Builder()
-		.data(new Date())
-		.itensVenda(itensVenda);
+				.data(new Date())
+				.itensVenda(itensVenda)
+				.build();
 		this.vendasRepository.salvar(venda);
 	}
 

@@ -29,7 +29,6 @@ public class ServicoDeProduto {
 			Estoque estoque = this.servicoDeEstoque.buscaItemEstoque(produto.getCodigo());
 			produtosComQuantidade.add(new ProdutoDTO(produto.getCodigo(), produto.getDescricao(), produto.getPrecoUnitario(), estoque.getQuantidadeDisponivel()));
 		}
-
 		return produtosComQuantidade;
 	}
 

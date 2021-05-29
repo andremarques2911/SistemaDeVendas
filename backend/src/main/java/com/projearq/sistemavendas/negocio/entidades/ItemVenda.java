@@ -9,22 +9,29 @@ import java.util.List;
 @Entity
 @Table(name = "itens_venda")
 public class ItemVenda {
+
     @Id
     @SequenceGenerator(allocationSize = 1, name = "id_itens_venda_seq", sequenceName = "id_itens_venda_seq")
     @GeneratedValue(generator = "id_itens_venda_seq", strategy = GenerationType.SEQUENCE)
     @Column(name = "id_itens_venda")
 	private Long id;
+
 	private double quantidade;
+
 	private double precoUnitVenda;
+
 	private double imposto;
+
     @OneToOne
     @JoinColumn(name = "id_produto", nullable = false)
 	private Produto produto;
 
     @JsonBackReference
-        @ManyToOne
-        @JoinColumn(name = "id_venda", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_venda", nullable = false)
 	private Venda venda;
+
+    public ItemVenda() {}
 
     public static class Builder {
         private Long id = null;
@@ -59,15 +66,52 @@ public class ItemVenda {
         this.venda = builder.venda;
     }
 
-    public Long getId() {return this.id;}
+    public Long getId() {
+        return id;
+    }
 
-    public double getQuantidade() {return this.quantidade;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public double getPrecoUnitVenda() {return this.precoUnitVenda;}
+    public double getQuantidade() {
+        return quantidade;
+    }
 
-    public double getImposto() {return this.imposto;}
+    public void setQuantidade(double quantidade) {
+        this.quantidade = quantidade;
+    }
 
-    public Produto getProduto() {return this.produto;}
+    public double getPrecoUnitVenda() {
+        return precoUnitVenda;
+    }
 
-    public Venda getVenda() {return this.venda;}
+    public void setPrecoUnitVenda(double precoUnitVenda) {
+        this.precoUnitVenda = precoUnitVenda;
+    }
+
+    public double getImposto() {
+        return imposto;
+    }
+
+    public void setImposto(double imposto) {
+        this.imposto = imposto;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
 }
