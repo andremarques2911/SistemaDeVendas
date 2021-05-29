@@ -5,7 +5,7 @@ Trabalho da Disciplina de Projeto e Arquitetura de Software
 André Marques, Fernado Elger, Gabriel Bilhar, Giovanni Frozza
 
 ### *Rodando o backend:*
-> - Entrar na raiz do projeto
+> - entrar na raiz do projeto
 >
 > - docker build -t sistemavendas .
 >
