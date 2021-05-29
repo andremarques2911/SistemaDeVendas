@@ -10,7 +10,7 @@ André Marques, Fernado Elger, Gabriel Bilhar, Giovanni Frozza
 ### *Rodando o backend:*
 > - abrir o terminal
 >
-> - entrar na raiz do projeto
+> - entrar na raiz do projeto backend (onde se encontra o arquivo Dockerfile)
 >
 > - docker build -t sistemavendas .
 >
