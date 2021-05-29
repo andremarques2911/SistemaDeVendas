@@ -4,7 +4,12 @@ Trabalho da Disciplina de Projeto e Arquitetura de Software
 ## Alunos
 André Marques, Fernado Elger, Gabriel Bilhar, Giovanni Frozza
 
+## *Pré-requisitos*
+> Docker https://docs.docker.com/docker-for-windows/install/
+
 ### *Rodando o backend:*
+> - abrir o terminal
+>
 > - entrar na raiz do projeto
 >
 > - docker build -t sistemavendas .
